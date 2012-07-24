@@ -28,6 +28,13 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&matrix_keypad_s0 &volume_keys_s0>;
 
+		d_can1_pins_s0: d_can1_pins_s0 {
+			pinctrl-single,pins = <
+				0x168 0x2	/* uart0_ctsn.d_can1_tx, OUTPUT | MODE2 */
+				0x16c 0x32	/* uart0_rtsn.d_can1_rx, INPUT_PULLUP | MODE2 */
+			>;
+		};
+
 		matrix_keypad_s0: matrix_keypad_s0 {
 			pinctrl-single,pins = <
 				0x54 0x7	/* gpmc_a5.gpio1_21, OUTPUT | MODE7 */
@@ -49,6 +56,12 @@
 	ocp {
 		uart1: serial@44e09000 {
 			status = "okay";
+		};
+
+		dcan1: d_can@481d0000 {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&d_can1_pins_s0>;
 		};
 
 		i2c0: i2c@44e0b000 {

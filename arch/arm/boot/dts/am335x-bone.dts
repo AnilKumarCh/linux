@@ -52,6 +52,10 @@
 			};
 
 		};
+
+		rtc@44e3e000 {
+			ti,system-power-controller;
+		};
 	};
 
 	leds {
